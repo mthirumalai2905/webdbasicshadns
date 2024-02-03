@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.pinimg.com/564x/6d/62/f1/6d62f15f44f38c7f81c48145f42eb204.jpg" />
+    <title>fun_gifs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: auto;
+            gap: 0;
+            height: 100%;
+            cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
+        }
+
+        .container img {
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr; /* Switch to a single column on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="downloadGifs()">
+        <div class="gif1"><img src="https://i.pinimg.com/originals/49/cd/d8/49cdd838e8c6d7fe5e2dd55deead5567.gif" /></div>
+        <div class="gif2"><img src="https://i.pinimg.com/originals/02/01/1e/02011ec8554277b8c70bf22fb192123c.gif" /></div>
+        <div class="gif3"><img src="https://i.pinimg.com/originals/83/b8/09/83b809857acd41a7bad4935b4734f9fc.gif" /></div>
+        <div class="gif4"><img src="https://i.pinimg.com/originals/55/fc/4b/55fc4bee7c31f0850262da53fa1e3180.gif" /></div>
+        <div class="gif1"><img src="https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif" /></div>
+        <div class="gif2"><img src="https://i.pinimg.com/originals/7a/61/fe/7a61fe192013a896351c2a315238a36e.gif" /></div>
+        <div class="gif3"><img src="https://i.pinimg.com/originals/84/da/da/84dada0a5dcfd790700df3dd87897aef.gif" /></div>
+        <div class="gif4"><img src="https://i.pinimg.com/originals/8e/ac/dc/8eacdc657efaaa2b710e960c71fed669.gif" /></div>
+        <div class="gif1"><img src="https://i.pinimg.com/originals/ef/37/57/ef375738b5d3cc1bd9216f86c58148a9.gif" /></div>
+        <div class="gif2"><img src="https://i.pinimg.com/originals/0f/a0/19/0fa01936a3e4dda0d338e04c911a8545.gif" /></div>
+        <div class="gif3"><img src="https://i.pinimg.com/originals/cb/2a/f8/cb2af8bdb10372eb49b8d38f8a074126.gif" /></div>
+        <div class="gif4"><img src="https://i.pinimg.com/originals/77/dc/47/77dc47dc2666e3bf8727eb7eeb93c96a.gif" /></div>
+    </div>
+
+    <script>
+        function downloadGifs() {
+            var confirmation = confirm("Do you want to download all the GIFs?");
+            
+            if (confirmation) {
+                var images = document.querySelectorAll('.container img');
+
+                images.forEach(function(image, index) {
+                    var link = document.createElement('a');
+                    link.href = image.src;
+                    link.download = 'gif' + (index + 1) + '.gif';
+                    link.click();
+                });
+            }
+        }
+    </script>
+</body>
+</html>
