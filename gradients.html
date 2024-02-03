@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Text Gradients</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-family: sans-serif;
+            justify-content: center;
+            padding-left: 200px;
+            height: 100vh;
+        }
+        .text1{
+            background: -webkit-linear-gradient(#aa0b0b,#000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text2{
+            background: linear-gradient(to Right, #04f949,#aa0b0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text3{
+            background: linear-gradient(to left, #04f949,#aa0b0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text4{
+            background: linear-gradient(#000000 25%,#ff0505 65%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text1"><h1>Hello Im Gradient</h1></div>
+        <div class="text2"><h1>Hello Im Right Gradient</h1></div>
+        <div class="text3"><h1>Hello Im Left Gradient</h1></div>
+        <div class="text4"><h1>Hello Im Ratio wise Gradient</h1></div>
+    </div>
+    
+</body>
+</html>
