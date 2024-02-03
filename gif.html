@@ -14,7 +14,7 @@
 
         html, body {
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -53,21 +53,6 @@
         <div class="gif4"><img src="https://i.pinimg.com/originals/77/dc/47/77dc47dc2666e3bf8727eb7eeb93c96a.gif" /></div>
     </div>
 
-    <script>
-        function downloadGifs() {
-            var confirmation = confirm("Do you want to download all the GIFs?");
-            
-            if (confirmation) {
-                var images = document.querySelectorAll('.container img');
 
-                images.forEach(function(image, index) {
-                    var link = document.createElement('a');
-                    link.href = image.src;
-                    link.download = 'gif' + (index + 1) + '.gif';
-                    link.click();
-                });
-            }
-        }
-    </script>
 </body>
 </html>
