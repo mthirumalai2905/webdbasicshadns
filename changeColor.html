@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black; /* Initial background color */
+            transition: background-color 0.5s ease; /* Smooth transition for color change */
+        }
+        #square{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 5px solid black;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="square" onclick="toggleColor()"></div>
+
+    <script>
+        const square = document.getElementById('square');
+
+        function toggleColor(){
+            const currentColor = square.style.backgroundColor;
+
+            if(currentColor === 'yellow'){
+                square.style.backgroundColor = 'red';
+            } else{
+                square.style.backgroundColor = 'yellow';
+            }
+            
+            // Toggle background color of the document
+            const bodyColor = window.getComputedStyle(document.body).backgroundColor;
+            document.body.style.backgroundColor = bodyColor === 'rgb(0, 0, 0)' ? 'white' : 'black';
+        }
+    </script>
+    
+</body>
+</html>
