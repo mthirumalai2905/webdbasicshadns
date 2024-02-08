@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bouncing Color Changing Square</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Initial background color */
+    transition: background-color 0.5s ease; /* Smooth transition for color change */
+  }
+
+  #square {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.5s ease; /* Smooth transition for bounce effect and color change */
+  }
+
+  /* Add bounce effect when the 'bouncing' class is applied */
+  .bouncing {
+    animation: bounce 0.5s ease;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="square"></div>
+
+<script>
+  const square = document.getElementById('square');
+
+  square.addEventListener('click', () => {
+    toggleBounce();
+    changeColor();
+    changeDocumentColor();
+  });
+
+  function changeColor() {
+    // Change the color to red
+    square.style.backgroundColor = 'red';
+  }
+
+  function changeDocumentColor() {
+    // Get the current background color of the body
+    const currentColor = window.getComputedStyle(document.body).backgroundColor;
+
+    // Toggle between black and white
+    document.body.style.backgroundColor = currentColor === 'rgb(0, 0, 0)' ? 'white' : 'black';
+  }
+
+  function toggleBounce() {
+    // Add 'bouncing' class to trigger animation
+    square.classList.add('bouncing');
+
+    // Remove 'bouncing' class after the animation duration
+    setTimeout(() => {
+      square.classList.remove('bouncing');
+    }, 500); // Adjust this value to match the animation duration
+  }
+</script>
+
+</body>
+</html>
